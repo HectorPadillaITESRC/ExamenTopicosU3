@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="RegistroPresion.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:RegistroPresion"
+    xmlns:views="clr-namespace:RegistroPresion.Views"
+    xmlns:viewmodels="clr-namespace:RegistroPresion.ViewModels"
+    Title="Registros de Presión Arterial"
+    Shell.BackgroundColor="Navy"
+    Shell.FlyoutBehavior="Flyout"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White">
+
+    <Shell.BindingContext>
+        <viewmodels:RegistroPresionViewModel></viewmodels:RegistroPresionViewModel>
+    </Shell.BindingContext>
+
+    <ShellContent
+        Title="Principal"
+        ContentTemplate="{DataTemplate views:VerRegistrosView}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Registrar"
+        ContentTemplate="{DataTemplate views:RegistrarView}"
+        Route="Registrar" />
+
+
+
+    <ShellContent FlyoutItemIsVisible="False"
+        Title="Detalles"
+        ContentTemplate="{DataTemplate views:MostrarRegistroView}"
+        Route="Detalles" />
+
+</Shell>

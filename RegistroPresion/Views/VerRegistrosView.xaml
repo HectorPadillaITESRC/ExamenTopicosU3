@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegistroPresion.Views.VerRegistrosView"
+             xmlns:viewmodels="clr-namespace:RegistroPresion.ViewModels"
+             xmlns:models="clr-namespace:RegistroPresion.Models"
+             Title="Registro de Presión Arterial" BackgroundColor="AliceBlue"
+             x:DataType="{x:Type viewmodels:RegistroPresionViewModel}"
+             x:Name="pagina"
+             >
+    <Grid>
+
+        <CollectionView SelectedItem="{Binding Registro}" SelectionMode="Single"
+                        
+                        ItemsSource="{Binding Registros}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:Registro}">
+                    <Border Stroke="LightGray" StrokeThickness="1" 
+              Background="White" Margin="5,5,5,0">
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference pagina},
+                                Path=BindingContext.NavigateCommand}" CommandParameter="Detalles"></TapGestureRecognizer>
+                        </Border.GestureRecognizers>
+                        <Grid Margin="0" RowDefinitions="auto,auto,auto,auto" ColumnDefinitions="*,*,*">
+
+                            <Label  Background="Green" TextColor="White" Grid.Row="0" Grid.ColumnSpan="3"  Padding="3"  Text="{Binding Categoria}" HorizontalTextAlignment="Center">
+                            </Label>
+
+                            <Label Grid.Row="1" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" Text="{Binding Sistolica}"></Label>
+                            <Label Grid.Row="2" HorizontalTextAlignment="Center" FontSize="18">SIS</Label>
+                            <Label Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" Text="{Binding Diastolica}"></Label>
+                            <Label Grid.Column="1" Grid.Row="2" HorizontalTextAlignment="Center" FontSize="18">DIA</Label>
+                            <Label Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" Text="{Binding Pulso}"></Label>
+                            <Label Grid.Column="2" Grid.Row="2" HorizontalTextAlignment="Center" FontSize="18">Pulso</Label>
+
+                            <Label Background="LightGray" HeightRequest="1" Grid.ColumnSpan="3" Grid.Row="3" VerticalOptions="Start"></Label>
+
+                            <Label  Grid.Row="3" Grid.ColumnSpan="3"  Padding="3"  Text="{Binding Fecha, StringFormat='{0:dd MMM yyyy, hh:mm tt}'}" HorizontalTextAlignment="End">
+                            </Label>
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Button Command="{Binding NavigateCommand}" CommandParameter="Registrar" BackgroundColor="Navy" CornerRadius="100" Margin="10"  HeightRequest="50" WidthRequest="50" VerticalOptions="End"
+               HorizontalOptions="End" Text="+"></Button>
+    </Grid>
+</ContentPage>

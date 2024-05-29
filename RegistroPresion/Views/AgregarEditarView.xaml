@@ -1,0 +1,42 @@
+ <?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegistroPresion.Views.AgregarEditarView"
+    Title="Guardar Registro" BackgroundColor="AliceBlue">
+    <VerticalStackLayout>
+        <Frame CornerRadius="30" Background="White" Margin="10" >
+
+            <Grid RowDefinitions="auto,auto,auto,auto,80, 80" ColumnDefinitions=".1*,.1*">
+
+                <Label Margin="5" Grid.ColumnSpan="2" Text="17 feb 2023, 10:58 a.m." HorizontalTextAlignment="End"></Label>
+
+                <VerticalStackLayout Grid.Row="1" Margin="10,25">
+                    <Label FontSize="24" FontAttributes="Bold">SIS</Label>
+                    <Label FontSize="20">mmHg</Label>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="2" Margin="10,25">
+                    <Label FontSize="24" FontAttributes="Bold">DIA</Label>
+                    <Label FontSize="20">mmHg</Label>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="3" Margin="10,25">
+                    <Label FontSize="24" FontAttributes="Bold">PULSO</Label>
+                    <Label FontSize="20">ppm</Label>
+                </VerticalStackLayout>
+
+                <Entry FontAttributes="Bold" Margin="10" FontSize="24" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" Text="120"></Entry>
+                <Entry FontAttributes="Bold" Margin="10" FontSize="24" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1" Text="80"></Entry>
+                <Entry FontAttributes="Bold" Margin="10" FontSize="24" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="1" Text="72"></Entry>
+
+
+                <Button BorderColor="DarkBlue" BorderWidth="1" Background="White" TextColor="DarkBlue"
+                        Margin="10"  Grid.Row="5" Text="Registrar"></Button>
+
+                <Button BorderColor="DarkRed" BorderWidth="1" Background="White" TextColor="DarkRed"
+                        Margin="10" Grid.Column="1" Grid.Row="5" Text="Cancelar"></Button>
+            </Grid>
+
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage> >

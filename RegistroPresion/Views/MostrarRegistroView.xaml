@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:RegistroPresion.ViewModels"
+    x:Class="RegistroPresion.Views.MostrarRegistroView"
+             Title="Detalles de registro" x:DataType="{x:Type viewmodels:RegistroPresionViewModel}">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Frame CornerRadius="30" Background="White" Margin="10" >
+
+                <Grid RowDefinitions="auto,auto,auto,auto,auto, 80" ColumnDefinitions=".1*,.1*">
+
+                    <Label Margin="5" Grid.ColumnSpan="2" Text="{Binding Path=Registro.Fecha, StringFormat='{0:dd MMM yyyy, hh:mm tt}'}" HorizontalTextAlignment="End"></Label>
+
+                    <VerticalStackLayout Grid.Row="1" Margin="10,15">
+                        <Label FontSize="24" FontAttributes="Bold">SIS</Label>
+                        <Label FontSize="20">mmHg</Label>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="2" Margin="10,15">
+                        <Label FontSize="24" FontAttributes="Bold">DIA</Label>
+                        <Label FontSize="20">mmHg</Label>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="3" Margin="10,15">
+                        <Label FontSize="24" FontAttributes="Bold">PULSO</Label>
+                        <Label FontSize="20">ppm</Label>
+                    </VerticalStackLayout>
+
+                    <Label FontAttributes="Bold" Margin="10" FontSize="24" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="1" Grid.Column="1" Text="{Binding Registro.Sistolica}"></Label>
+                    <Label FontAttributes="Bold" Margin="10" FontSize="24" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="2" Grid.Column="1" Text="{Binding Registro.Diastolica}"></Label>
+                    <Label FontAttributes="Bold" Margin="10" FontSize="24" VerticalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="3" Grid.Column="1" Text="{Binding Registro.Pulso}"></Label>
+
+                    <Label HorizontalTextAlignment="Center" FontAttributes="Bold" Grid.Row="4" Grid.ColumnSpan="2" BackgroundColor="Green" TextColor="White" Padding="10" Margin="0, 20" Text="{Binding Registro.Categoria}"></Label>
+
+                    <Button Command="{Binding EliminarCommand}" BorderColor="Red" BorderWidth="1" Background="White" TextColor="Red"
+                     Margin="10"  Grid.Row="5" Text="Borrar registro"></Button>
+
+                    <Button Command="{Binding NavigateCommand}" CommandParameter="MainPage" BorderColor="DarkRed" BorderWidth="1" Background="White" TextColor="DarkRed"
+                     Margin="10" Grid.Column="1" Grid.Row="5" Text="Cancelar"></Button>
+                </Grid>
+
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
